@@ -31,12 +31,12 @@ public class ControladorRecetas {
 	}
 	
 	@GetMapping("/recetas/{nombre}")
-	public String obtenerRecetaPorNombre(@PathVariable String nombre, Model model) {
+	public String obtenerRecetasPorNombre(@PathVariable String nombre, Model model) {
 		if (recetasConIngredientes.containsKey(nombre)) {
 			model.addAttribute("receta", nombre);
 			model.addAttribute("ingredientes", recetasConIngredientes.get(nombre));
 		} else {
-			model.addAttribute("mensaje", "No se encuentra la receta en nuestra lista");
+			model.addAttribute("mensaje", "No se encuentra la receta");
 		}
 		
 		return "detalleReceta.jsp";
